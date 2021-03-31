@@ -1,0 +1,52 @@
+#Author- Priyanshi Dubey
+
+
+import time
+
+values_number = [11, 9, 20, 18, 6, 2, 5, 34, 24]
+
+def median(values_number):
+    values_number.sort()
+    if len(values_number) % 2 != 0:
+        mid = int((len(values_number) - 1) / 2)
+        return values_number[mid]
+    elif len(values_number) % 2 == 0:
+        mid1 = int(len(values_number)/2)
+        mid2 = int(len(values_number)/2) - 1
+        return int(mean[values_number[mid1], values_number[mid2]])
+
+
+def mean(values_number):
+    total = 0
+    for num in values_number:
+        total = total + num
+    return int(total/ len(values_number))
+
+minimum = values_number[0]
+n=len(values_number)
+for i in range(0, n):
+    if values_number[i]<minimum:
+        minimum = values_number[i]
+
+maximum = values_number[0]
+n=len(values_number)
+
+for i in range(0, n):
+    if values_number[i]>maximum:
+        maximum = values_number[i]
+
+print(minimum, maximum, median(values_number), mean(values_number))
+
+def measure_time(input_size):
+    values_number = [i for i in range(input_size)]
+    start = time.time()
+    print(minimum, maximum)
+    print("Input size=", input_size, " Time taken=", time.time() - start)
+
+
+measure_time(1000)
+measure_time(40000)
+measure_time(60000)
+measure_time(800000)
+measure_time(1000000)
+
